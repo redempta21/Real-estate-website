@@ -1,0 +1,344 @@
+# Query: login
+# ContextLines: 1
+
+92 results - 33 files
+
+app\Http\Controllers\Auth\LoginController.php:
+   19  
+   20: class LoginController extends Controller
+   21  {
+
+   23      |--------------------------------------------------------------------------
+   24:     | Login Controller
+   25      |--------------------------------------------------------------------------
+
+   35      /**
+   36:      * Where to redirect users after login.
+   37       *
+
+   51  
+   52:     protected function validateLogin(Request $request)
+   53      {
+
+   61              if(Hash::check($request->password, $user->password)){
+   62:                 Auth::login($user);
+   63              }else{
+
+   86  
+   87:         $this->_registerOrLoginUser($user);
+   88  
+   89:         // Return home after login
+   90          return redirect()->route(Session::get('redirect'));
+
+   92  
+   93:     // Facebook login
+   94      public function redirectToFacebook()
+
+  110  
+  111:         $this->_registerOrLoginUser($user);
+  112  
+  113:         // Return home after login
+  114          return redirect()->route(Session::get('redirect'));
+
+  116  
+  117:     protected function _registerOrLoginUser($data)
+  118      {
+
+  145  
+  146:         Auth::login($user);
+  147      }
+
+  153      //     }else{
+  154:     //         return redirect()->route('shipment-login');
+  155      //     }
+
+  190  
+  191:             return redirect()->route('shipment-login')->with('success', 'A request has been received please check your email.');
+  192  
+
+app\Http\Controllers\Auth\RegisterController.php:
+  35       */
+  36:     // protected $redirectTo = RouteServiceProvider::shipment_login;
+  37  
+
+app\Http\Middleware\Authenticate.php:
+  17          if (! $request->expectsJson()) {
+  18:             return route('shipment-login');
+  19          }
+
+app\Http\Middleware\RedirectIfAuthenticated.php:
+  32          // }else{
+  33:         //     return redirect()->oute('shipment-login');
+  34          // }
+
+app\Providers\RouteServiceProvider.php:
+  15       *
+  16:      * This is used by Laravel authentication to redirect users after login.
+  17       *
+
+  21      public const INDEX = '/shipment';
+  22:     public const shipment_login = '/shipment/login';
+  23  
+
+config\ziggy.php:
+   4  //     'only' => [
+   5: //         'shipment-login',
+   6  //         'getPortCode',
+
+  21          'shipment' => [
+  22:             'shipment-login',
+  23              'getPortCode',
+
+public\assets\css\style.css:
+  7190  
+  7191: .contact-section .form-section .extra-login {
+  7192      float: left;
+
+  7197  
+  7198: .contact-section .form-section .extra-login::before {
+  7199      position: absolute;
+
+  7207  
+  7208: .contact-section .form-section .extra-login > span {
+  7209      width: auto;
+
+  7464  
+  7465: /** Login 15 end **/
+  7466  
+
+public\assets\css\skins\blue-light.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #3c9dff;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #3c9dff;
+
+public\assets\css\skins\blue.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #95c41f;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #95c41f;
+
+public\assets\css\skins\brown.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #A14C10;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #A14C10;
+
+public\assets\css\skins\default.css:
+  804  
+  805: .contact-section .login-inner-form .footer span a:hover{
+  806      color: #3f56ff;
+
+  808  
+  809: .contact-section .login-inner-form .checkbox a:hover{
+  810      color: #3f56ff;
+
+public\assets\css\skins\green-light-2.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #0dcdbd;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #0dcdbd;
+
+public\assets\css\skins\green-light.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #1abc9c;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #1abc9c;
+
+public\assets\css\skins\olive.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #b3c211;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #b3c211;
+
+public\assets\css\skins\orange.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #F34B0A;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #F34B0A;
+
+public\assets\css\skins\purple.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #8e44ad;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #8e44ad;
+
+public\assets\css\skins\red.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #c41c1d;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #c41c1d;
+
+public\assets\css\skins\yellow-light.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #eae328;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #eae328;
+
+public\assets\css\skins\yellow.css:
+  805  
+  806: .contact-section .login-inner-form .footer span a:hover{
+  807      color: #ffb400;
+
+  809  
+  810: .contact-section .login-inner-form .checkbox a:hover{
+  811      color: #ffb400;
+
+public\assets\fonts\flaticon\font\_flaticon.scss:
+  38  
+  39:     .flaticon-login-arrow-outline:before { content: "\f100"; }
+  40  .flaticon-chat:before { content: "\f101"; }
+
+  79      
+  80:     $font-Flaticon-login-arrow-outline: "\f100";
+  81      $font-Flaticon-chat: "\f101";
+
+public\assets\fonts\flaticon\font\flaticon.css:
+  31  
+  32: .flaticon-login-arrow-outline:before { content: "\f100"; }
+  33  .flaticon-chat:before { content: "\f101"; }
+
+public\assets\fonts\flaticon\font\flaticon.html:
+  394        
+  395:         <div class="glyph"><div class="glyph-icon flaticon-login-arrow-outline"></div>
+  396:             <div class="class-name">.flaticon-login-arrow-outline</div>
+  397:             <div class="author-name">Author: <a data-file="001-login-arrow-outline" href="http://www.freepik.com">Freepik</a> </div> 
+  398          </div>        
+
+  601  
+  602:       <div class="title">License and attribution:</div><div class="attrDiv">Font generated by <a href="http://www.flaticon.com">flaticon.com</a>. <div><p>Under <a href="http://creativecommons.org/licenses/by/3.0/">CC</a>: <a data-file="001-login-arrow-outline" href="http://www.freepik.com">Freepik</a>, <a data-file="002-chat" href="https://www.flaticon.com/authors/smashicons">Smashicons</a>, <a data-file="024-monitor" href="https://www.flaticon.com/authors/gregor-cresnar">Gregor Cresnar</a>, <a data-file="020-swimmer" href="https://www.flaticon.com/authors/smartline">Smartline</a>, <a data-file="010-user-male-black-shape" href="https://www.flaticon.com/authors/simpleicon">SimpleIcon</a>, <a data-file="023-air-conditioner" href="https://www.flaticon.com/authors/swifticons">Swifticons</a>, <a data-file="022-wifi-connection-signal-symbol" href="https://www.flaticon.com/authors/rami-mcmin">Rami McMin</a>, <a data-file="014-idea" href="https://www.flaticon.com/authors/eucalyp">Eucalyp</a>, <a data-file="006-add" href="https://www.flaticon.com/authors/hanan">Hanan</a>, <a data-file="003-heart-shape-outline" href="https://www.flaticon.com/authors/dave-gandy">Dave Gandy</a></p>  </div>
+  603        </div>
+
+  605  
+  606:     <textarea onclick="this.focus();this.select();">Font generated by &lt;a href=&quot;http://www.flaticon.com&quot;&gt;flaticon.com&lt;/a&gt;. <p>Under <a href="http://creativecommons.org/licenses/by/3.0/">CC</a>: <a data-file="001-login-arrow-outline" href="http://www.freepik.com">Freepik</a>, <a data-file="002-chat" href="https://www.flaticon.com/authors/smashicons">Smashicons</a>, <a data-file="024-monitor" href="https://www.flaticon.com/authors/gregor-cresnar">Gregor Cresnar</a>, <a data-file="020-swimmer" href="https://www.flaticon.com/authors/smartline">Smartline</a>, <a data-file="010-user-male-black-shape" href="https://www.flaticon.com/authors/simpleicon">SimpleIcon</a>, <a data-file="023-air-conditioner" href="https://www.flaticon.com/authors/swifticons">Swifticons</a>, <a data-file="022-wifi-connection-signal-symbol" href="https://www.flaticon.com/authors/rami-mcmin">Rami McMin</a>, <a data-file="014-idea" href="https://www.flaticon.com/authors/eucalyp">Eucalyp</a>, <a data-file="006-add" href="https://www.flaticon.com/authors/hanan">Hanan</a>, <a data-file="003-heart-shape-outline" href="https://www.flaticon.com/authors/dave-gandy">Dave Gandy</a></p>  
+  607       </textarea>
+
+  616                  <p>
+  617:                     <i class="glyph-icon flaticon-login-arrow-outline"></i> 
+  618:                     <span>&lt;i class=&quot;flaticon-login-arrow-outline&quot;&gt;&lt;/i&gt;</span>
+  619                  </p>
+
+public\assets\fonts\linearicons\selection.json:
+  1269  					"log-in",
+  1270: 					"login"
+  1271  				],
+
+public\assets\fonts\linearicons\fonts\Linearicons-Free.svg:
+  59  <glyph unicode="&#xe81e;" d="M914.101 683.701l-230.4 230.4c-4.8 4.802-11.312 7.499-18.101 7.499h-486.4c-42.347 0-76.8-34.453-76.8-76.8v-819.2c0-42.349 34.453-76.8 76.8-76.8h665.6c42.349 0 76.8 34.451 76.8 76.8v640c0 6.79-2.698 13.301-7.499 18.101zM859.797 665.6h-168.597c-14.115 0-25.6 11.485-25.6 25.6v168.597l194.197-194.197zM844.8 0h-665.6c-14.115 0-25.6 11.485-25.6 25.6v819.2c0 14.115 11.485 25.6 25.6 25.6h435.2v-179.2c0-42.347 34.451-76.8 76.8-76.8h179.2v-588.8c0-14.115-11.485-25.6-25.6-25.6zM588.8 307.2h-128v128c0 14.139-11.462 25.6-25.6 25.6s-25.6-11.461-25.6-25.6v-128h-128c-14.138 0-25.6-11.461-25.6-25.6s11.462-25.6 25.6-25.6h128v-128c0-14.139 11.462-25.6 25.6-25.6s25.6 11.461 25.6 25.6v128h128c14.139 0 25.6 11.461 25.6 25.6s-11.461 25.6-25.6 25.6z" data-tags="file-add, file" />
+  60: ⟪ 1017 characters skipped ⟫898-109.899c-9.998-9.997-9.998-26.206 0-36.203 4.998-4.998 11.549-7.498 18.101-7.498s13.102 2.499 18.101 7.499l153.6 153.6c9.998 9.997 9.998 26.205 0 36.202z" data-tags="enter, door, sign-in, log-in, login" />
+  61  <glyph unicode="&#xe820;" d="M588.8 563.2c14.139 0 25.6 11.462 25.6 25.6v204.8c0 42.347-34.451 76.8-76.8 76.8h-460.8c-42.347 0-76.8-34.453-76.8-76.8v-614.4c0-38.178 27.488-79.862 62.576-94.899l264.278-113.262c9.134-3.915 18.373-5.859 27.24-5.859 10.926 0.002 21.288 2.955 30.173 8.814 16.099 10.616 25.333 29.426 25.333 51.606v76.8h128c42.349 0 76.8 34.451 76.8 76.8v204.8c0 14.139-11.461 25.6-25.6 25.6s-25.6-11.461-25.6-25.6v-204.8c0-14.115-11.485-25.6-25.6-25.6h-128v486.4c0 38.176-27.488 79.861-62.576 94.899l-196.702 84.301h387.278c14.115 0 25.6-11.485 25.6-25.6v-204.8c0-14.138 11.461-25.6 25.6-25.6zM326.854 687.838c16.51-7.075 31.546-29.877 31.546-47.838v-614.4c0-5.344-1.421-8.272-2.317-8.862-0.898-0.589-4.15-0.742-9.061 1.362l-264.278 113.262c-16.509 7.074-31.544 29.875-31.544 47.838v614.4c0 4.037 0.939 7.859 2.611 11.258l273.043-117.019zM939.701 504.501l-153.6 153.6c-9.997 9.998-26.206 9.998-36.203 0-9.998-9.997-9.998-26.206 0-36.203l109.899-109.898h-322.197c-14.139 0-25.6-11.462-25.6-25.6s11.461-25.6 25.6-25.6h322.197l-109.899-109.899c-9.998-9.997-9.998-26.206 0-36.203 5-4.998 11.55-7.498 18.102-7.498s13.102 2.499 18.101 7.499l153.6 153.6c9.998 9.997 9.998 26.205 0 36.202z" data-tags="exit, door, sign-out, log-out, logout" />
+
+resources\lang\en\auth.php:
+  17      'password' => 'The provided password is incorrect.',
+  18:     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+  19  
+
+resources\views\buying.blade.php:
+  180                                      <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+  181:                                     <li><a class="dropdown-item" href="login.html">Login/Register</a></li>
+  182                                  </ul> --}}
+
+  365                          <li><a href="coming-soon.html">Coming Soon</a></li>
+  366:                         <li><a href="login.html">Login/Register</a></li>
+  367                      </ul>
+
+resources\views\auth\login.blade.php:
+   1: @extends('layouts/login')
+   2  
+   3: @section('title', 'Login')
+   4  
+
+  12      <div class="container-fluid">
+  13:         <div class="row login-box">
+  14              <div class="col-lg-6 align-self-center pad-0 form-section">
+
+  19                      <h3 class="mt-3">Sign Into Your Account</h3>
+  20:                     <form action="{{ route('login') }}" method="POST">
+  21                          @csrf
+
+  39                          <div class="form-group">
+  40:                             <button type="submit" class="btn btn-4 btn-block">Login</button>
+  41                          </div>
+
+  49                          @endif
+  50:                         <div class="extra-login form-group clearfix">
+  51:                             <span>Or Login With</span>
+  52                          </div>
+
+resources\views\auth\register.blade.php:
+   1: @extends('layouts/login')
+   2  
+
+  12      <div class="container-fluid">
+  13:         <div class="row login-box">
+  14              <div class="col-lg-6 align-self-center pad-0 form-section">
+
+  55                          @endif
+  56:                         <div class="extra-login form-group clearfix">
+  57:                             <span>Or Login With</span>
+  58                          </div>
+
+  65                      <div class="clearfix"></div>
+  66:                     <p>Already a member? <a href="/login">Login here</a></p>
+  67                  </div>
+
+resources\views\email\forgetPassword.blade.php:
+  98                          </p>
+  99:                         <p style="margin: 0 0 24px;">Use this link to reset your password and login.</p>
+  100                          <a href="https://pixinvent.com?reset_password_url" style="display: block; font-size: 14px; line-height: 100%; margin-bottom: 24px; --text-opacity: 1; color: #7367f0; color: rgba(115, 103, 240, var(--text-opacity)); text-decoration: none;">https://getmoresell.com</a>
+
+resources\views\layouts\mainHeader.blade.php:
+  139                                      <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+  140:                                     <li><a class="dropdown-item" href="login.html">Login/Register</a></li>
+  141                                  </ul> --}}
+
+resources\views\layouts\sidebar.blade.php:
+  130                          <li><a href="coming-soon.html">Coming Soon</a></li>
+  131:                         <li><a href="login.html">Login/Register</a></li>
+  132                      </ul>
+
+resources\views\layouts\topHeader.blade.php:
+  21                      <li>
+  22:                         <a href="/login" class="sign-in"><i class="fa fa-sign-in"></i> Login </a>
+  23                      </li>
+
+routes\web.php:
+   5  use Laravel\Socialite\Facades\Socialite;
+   6: use App\Http\Controllers\Auth\LoginController;
+   7  use App\Http\Controllers\HomeController;
+
+  44  Route::post('contact', [ContactController::class, "save_contact"]);
+  45: Route::get('logout', [LoginController::class, "logout"]);
+  46  
+  47: // Route::get('login', [shipmentController::class, 'login'])->name("login");
+  48  // Route::get('register', [shipmentController::class, 'register'])->name("register");
